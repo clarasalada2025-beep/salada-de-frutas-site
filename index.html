@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Salada de Frutas da Clara — frutas fresquinhas, cremes deliciosos e entregas em Lagoa Grande do Maranhão.">
+  <meta name="theme-color" content="#8fbd63">
+  <title>Salada de Frutas da Clara | Sabor, frescor e carinho</title>
+  <style>
+    :root {
+      --green: #477b3d; --green-dark: #28542e; --lime: #d9edb8;
+      --pink: #f7dce0; --cream: #fffaf0; --ink: #29352a; --muted: #657064;
+      --white: #fff; --shadow: 0 14px 40px rgba(38, 72, 40, .12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.6; }
+    a { color: inherit; }
+    .container { width: min(1120px, 92%); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; background: rgba(255,250,240,.94); backdrop-filter: blur(10px); border-bottom: 1px solid #e8eadf; }
+    .nav { min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; color: var(--green-dark); }
+    .brand-mark { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--pink); font-size: 23px; }
+    nav { display: flex; flex-wrap: wrap; gap: 22px; }
+    nav a { text-decoration: none; font-weight: 700; font-size: .93rem; color: var(--green-dark); }
+    nav a:hover { color: #9a4c5a; }
+    .hero { padding: 74px 0 65px; background: radial-gradient(circle at 85% 20%, #f8e2e2 0 12%, transparent 32%), linear-gradient(120deg, #f1f8e7, #fff8ed); overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 48px; }
+    .eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: .14em; font-weight: 800; font-size: .78rem; }
+    h1 { font-family: Georgia, serif; font-size: clamp(2.6rem, 6vw, 4.8rem); line-height: 1.04; margin: 14px 0 20px; color: var(--green-dark); }
+    h1 span { color: #b65d70; }
+    .hero p { color: var(--muted); font-size: 1.12rem; max-width: 540px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 28px; }
+    .btn { display: inline-block; text-decoration: none; border-radius: 999px; padding: 13px 22px; font-weight: 800; transition: transform .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-light { background: white; color: var(--green-dark); border: 1px solid #dce7d3; }
+    
+    .hero-photo { position: relative; min-height: 390px; border-radius: 34px; overflow: hidden; box-shadow: var(--shadow); background: #e8efdc; isolation: isolate; }
+    .hero-photo::before { content: ""; position: absolute; inset: -18px; background: url("src/salada-frutas-banner.png") center/cover no-repeat; filter: blur(9px); transform: scale(1.06); z-index: -1; }
+    .hero-photo .image-button { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-decoration: none; }
+    .hero-photo .image-button span { display: inline-flex; align-items: center; gap: 10px; padding: 16px 30px; border-radius: 999px; background: rgba(190, 0, 65, .94); color: white; font-size: 1.35rem; font-weight: 800; border: 2px solid rgba(255,255,255,.9); box-shadow: 0 10px 28px rgba(40,0,20,.25); transition: transform .2s, background .2s; }
+    .hero-photo .image-button:hover span { transform: scale(1.05); background: #a9003c; }
+    .hero-photo .image-button:focus-visible { outline: 4px solid #ffd83d; outline-offset: -8px; }
+
+    section { padding: 76px 0; }
+    .section-head { text-align: center; max-width: 680px; margin: 0 auto 38px; }
+    .section-head h2 { font: 700 clamp(2rem, 4vw, 3rem)/1.1 Georgia, serif; color: var(--green-dark); margin: 10px 0; }
+    .section-head p { color: var(--muted); margin: 0; }
+    .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+    .product-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); }
+    .product-card img { width: 100%; height: 245px; object-fit: cover; display: block; background: #e9efdf; }
+    .product-content { padding: 25px; }
+    .product-content h3 { margin: 0 0 8px; color: var(--green-dark); font: 700 1.65rem Georgia, serif; }
+    .product-content p { color: var(--muted); margin: 0 0 15px; }
+    .price-list { list-style: none; padding: 0; margin: 0; }
+    .price-list li { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed #dce5d5; font-weight: 700; }
+    .price-list li:last-child { border: 0; }
+    .price { color: #a94e63; white-space: nowrap; }
+    .extras { margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: #fff5f4; color: #74434c; font-size: .94rem; }
+    .about { background: #eff6e8; }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: center; }
+    .about-photo { border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); }
+    .about-photo img { width: 100%; height: 390px; object-fit: cover; display: block; background: #e2ecd8; }
+    .about h2 { font: 700 clamp(2rem, 4vw, 3rem)/1.1 Georgia, serif; color: var(--green-dark); margin: 10px 0 18px; }
+    .about p { color: var(--muted); }
+    .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 24px; }
+    .value { background: white; border-radius: 16px; padding: 16px; font-weight: 700; color: var(--green-dark); }
+    .value span { display: block; font-size: 1.5rem; margin-bottom: 5px; }
+    .difference-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .feature { padding: 24px; border-radius: 20px; background: white; box-shadow: var(--shadow); }
+    .feature .emoji { font-size: 2rem; }
+    .feature h3 { margin: 10px 0 6px; color: var(--green-dark); }
+    .feature p { color: var(--muted); margin: 0; }
+    .schedule { background: #fff1f0; }
+    .schedule-box { max-width: 800px; margin: auto; padding: 30px; background: white; border-radius: 24px; box-shadow: var(--shadow); }
+    .schedule-row { display: flex; justify-content: space-between; gap: 20px; padding: 13px 0; border-bottom: 1px solid #f0e5e2; }
+    .schedule-row:last-child { border: 0; }
+    .schedule-row strong { color: var(--green-dark); }
+    .contact { text-align: center; background: linear-gradient(130deg, #eaf4df, #fff6ed); }
+    .contact h2 { font: 700 clamp(2rem, 4vw, 3rem) Georgia, serif; color: var(--green-dark); margin: 10px 0; }
+    .contact p { color: var(--muted); }
+    footer { background: var(--green-dark); color: #f5f7ed; text-align: center; padding: 28px 15px; }
+    footer p { margin: 5px; }
+    .quote { color: #9a4c5a; font: italic 1.2rem Georgia, serif; margin-top: 22px; }
+    @media (max-width: 760px) {
+      .nav { padding: 12px 0; align-items: flex-start; flex-direction: column; }
+      nav { gap: 12px 17px; }
+      .hero { padding: 50px 0; }
+      .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-photo, .hero-photo img { min-height: 280px; }
+      .products { grid-template-columns: 1fr; }
+      .difference-grid { grid-template-columns: 1fr; }
+      .values { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .schedule-box { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#inicio"><span class="brand-mark">🍓</span><span>Salada de Frutas da Clara</span></a>
+      <nav aria-label="Menu principal">
+        <a href="#produtos">Cardápio</a>
+        <a href="#historia">Nossa história</a>
+        <a href="#diferencial">Nosso diferencial</a>
+        <a href="#entregas">Entregas</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Sabor • frescor • carinho</div>
+          <h1>Um carinho em forma de <span>salada de frutas!</span></h1>
+          <p>Frutas selecionadas, cremes deliciosos e muito cuidado em cada copinho. Peça a sua e receba bem geladinha!</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/559996490742" target="_blank" rel="noopener">Fazer pedido pelo WhatsApp</a>
+            <a class="btn btn-light" href="#produtos">Conhecer o cardápio</a>
+          </div>
+          <div class="quote">“Meu negócio é abençoado porque meu sócio é Deus.” 🙏</div>
+        </div>
+        <div class="hero-photo" aria-label="Imagem de fundo borrada de salada de frutas"><a class="image-button" href="imagens.html" target="_blank" rel="noopener"><span>🖼 Imagem</span></a>
+          
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Nosso cardápio</div>
+          <h2>Escolha seu sabor favorito</h2>
+          <p>Opções preparadas com dedicação para deixar seu dia mais gostoso.</p>
+        </div>
+        <div class="products">
+          <article class="product-card">
+            <img src="images/salada-tradicional.jpg" alt="Salada de frutas tradicional com frutas variadas">
+            <div class="product-content">
+              <h3>🍓 Tradicional</h3>
+              <p>Uma combinação colorida de frutas, com nosso querido creme de morango.</p>
+              <ul class="price-list">
+                <li><span>150 ml</span><span class="price">R$ 5,00</span></li>
+                <li><span>300 ml</span><span class="price">R$ 10,00</span></li>
+                <li><span>500 ml</span><span class="price">R$ 15,00</span></li>
+              </ul>
+              <div class="extras">Frutas: banana, uva, maçã, kiwi, manga e morango.</div>
+            </div>
+          </article>
+          <article class="product-card">
+            <img src="images/salada-gourmet.jpg" alt="Salada de frutas gourmet com creme">
+            <div class="product-content">
+              <h3>🍨 Gourmet</h3>
+              <p>Uma opção cremosa e especial, para quem ama experimentar novos sabores.</p>
+              <ul class="price-list">
+                <li><span>250 ml</span><span class="price">R$ 12,00</span></li>
+                <li><span>400 ml</span><span class="price">R$ 20,00</span></li>
+                <li><span>500 ml</span><span class="price">R$ 25,00</span></li>
+              </ul>
+              <div class="extras">Cremes disponíveis: maracujá e Ninho.</div>
+            </div>
+          </article>
+        </div>
+        <p style="text-align:center;color:#657064;margin-top:22px;">Acompanhamentos: leite em pó, farinha láctea e granola.</p>
+      </div>
+    </section>
+
+    <section class="about" id="historia">
+      <div class="container about-grid">
+        <div class="about-photo">
+          <img src="images/frutas-frescas.jpg" alt="Frutas frescas selecionadas para preparar as saladas">
+        </div>
+        <div>
+          <div class="eyebrow">Quem somos</div>
+          <h2>Uma história feita de sonhos, trabalho e fé</h2>
+          <p>A Salada de Frutas da Clara nasceu do desejo de empreender, trabalhar e conquistar novos objetivos. Por trás de cada copinho existe dedicação, coragem e perseverança.</p>
+          <p>Sabemos que empreender tem desafios: escolher frutas, cuidar dos custos, organizar os pedidos e conquistar a confiança de cada cliente. Cada venda e cada mensagem de carinho são motivos para agradecer e continuar.</p>
+          <div class="values">
+            <div class="value"><span>🙏</span>Fé em Deus</div>
+            <div class="value"><span>❤️</span>Carinho no preparo</div>
+            <div class="value"><span>🍃</span>Cuidado e qualidade</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="diferencial">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Nosso cuidado</div>
+          <h2>O frescor faz a diferença</h2>
+          <p>Nosso compromisso é entregar uma experiência gostosa, com atenção desde o preparo até a sua casa.</p>
+        </div>
+        <div class="difference-grid">
+          <article class="feature"><div class="emoji">❄️</div><h3>Bem geladinha</h3><p>Transportamos as frutas em garrafa térmica para ajudar a conservar a temperatura.</p></article>
+          <article class="feature"><div class="emoji">🥣</div><h3>Montagem na hora</h3><p>Os copinhos são montados no momento da entrega, com cuidado e atenção.</p></article>
+          <article class="feature"><div class="emoji">🍓</div><h3>Dedicação em cada pedido</h3><p>Selecionamos e preparamos os ingredientes pensando na satisfação dos nossos clientes.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="schedule" id="entregas">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Organize seu pedido</div>
+          <h2>Como funcionam as entregas</h2>
+          <p>Uma programação organizada para preparar tudo com tranquilidade e atender melhor.</p>
+        </div>
+        <div class="schedule-box">
+          <div class="schedule-row"><span>Recebimento de pedidos</span><strong>08h30 às 13h30</strong></div>
+          <div class="schedule-row"><span>Início das entregas</span><strong>A partir das 14h30</strong></div>
+          <div class="schedule-row"><span>Dias de atendimento regular</span><strong>Segunda a sexta-feira</strong></div>
+          <p style="color:#657064;margin:18px 0 0;">Faça seu pedido dentro do horário de atendimento. Assim conseguimos organizar cada entrega com carinho!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <div class="container">
+        <div class="eyebrow">Estamos esperando seu pedido</div>
+        <h2>Peça sua Salada de Frutas da Clara!</h2>
+        <p>Atendimento em Lagoa Grande do Maranhão – MA.</p>
+        <p><strong>WhatsApp: (99) 9649-0742</strong></p>
+        <a class="btn btn-primary" href="https://wa.me/559996490742" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+        <p class="quote">Toda honra e toda glória sejam dadas a Deus! 🙏</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>🍓 Salada de Frutas da Clara</strong></p>
+    <p>Sabor, frescor e carinho em cada copinho.</p>
+    <p>© <span id="year"></span> Salada de Frutas da Clara</p>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
