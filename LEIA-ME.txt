@@ -1,6 +1,1 @@
-ESTRUTURA DO SITE
-
-index.html = código do site.
-src/salada-frutas-banner.png = imagem separada usada pelo HTML.
-
-Mantenha a pasta src junto do index.html ao publicar no GitHub Pages. O caminho da imagem está em: src="src/salada-frutas-banner.png".
+Todos os direitos reservados por clara em 2026
